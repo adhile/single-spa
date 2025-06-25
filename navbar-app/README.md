@@ -1,12 +1,37 @@
-# React + Vite
+# Navbar App (Microfrontend)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a React app built with Vite, designed to be used as a microfrontend (navbar) in a single-spa setup.
 
-Currently, two official plugins are available:
+## Prerequisites
+- Node.js (v16 or higher recommended)
+- npm (v8 or higher)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Installation & Running the App
+Follow these steps to set up and run the app:
 
-## Expanding the ESLint configuration
+1. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+2. **Start the development server:**
+   ```bash
+   npm run dev
+   ```
+   The app will start on the default Vite port (usually 5173). You can access it at [http://localhost:5173](http://localhost:5173).
+3. **Build for production:**
+   ```bash
+   npm run build
+   ```
+   This will generate a `dist` folder with the production build.
+4. **Preview the production build locally:**
+   ```bash
+   npm run serve
+   ```
+   This will serve the production build at [http://localhost:4173](http://localhost:4173) by default.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Usage as Microfrontend
+This app is intended to be registered and loaded by a single-spa root-config. Make sure the module name matches the one used in your root-config (e.g., `navbarApp`).
+
+## Development Notes
+- Edit `src/root.component.jsx` for the main navbar component.
+- For microfrontend integration, ensure module federation or SystemJS configuration matches your setup.

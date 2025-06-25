@@ -1,36 +1,31 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Root Next.js App (single-spa root-config)
 
-## Getting Started
+This is a [Next.js](https://nextjs.org) project that acts as the root-config for a microfrontend architecture using [single-spa](https://single-spa.js.org/).
 
-First, run the development server:
+## Prerequisites
+- Node.js (v16 or higher recommended)
+- npm (v8 or higher)
 
+## Installation
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Running the App
+```bash
+npm run dev
+```
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+The app will start on [http://localhost:3000](http://localhost:3000).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Microfrontend Integration
+- Microfrontends (like `navbar-app`) are registered in `src/app/singleSpa/registerMicrofrontends.js`.
+- Make sure each microfrontend is running on its own dev server and is configured to be loaded by SystemJS or module federation as needed.
+
+## Development Notes
+- Edit `src/app/singleSpa/registerMicrofrontends.js` to register or update microfrontends.
+- This project can be deployed as a regular Next.js app.
 
 ## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [single-spa Documentation](https://single-spa.js.org/docs/getting-started-overview)
+- [Next.js Documentation](https://nextjs.org/docs)

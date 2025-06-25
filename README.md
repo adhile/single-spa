@@ -75,4 +75,13 @@ npm run dev
 
 ---
 
+## Known Issues / Troubleshooting
+
+### Microfrontend Lifecycle Exports (bootstrap, mount, unmount)
+- When running the navbar-app as a microfrontend with single-spa, it must export the `bootstrap`, `mount`, and `unmount` lifecycle functions from its entry file (`src/index.js`).
+- If you want to run the navbar-app standalone (for local development), you need a separate entry file (e.g., `src/standalone.js`) that renders the component directly. Do **not** change the lifecycle exports in `src/index.js`, or single-spa integration will break.
+- The Vite config can be set up to use the correct entry file depending on the mode (see project setup for details).
+- If you see errors about missing `bootstrap`, `mount`, or `unmount` when integrating, make sure your build is exporting these functions and you are not running the standalone entry.
+- **Note:** This issue is not yet fully resolved and may require further configuration or troubleshooting for seamless development and integration.
+
 For more details, see the individual `README.md` files in each app folder.

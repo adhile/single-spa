@@ -4,6 +4,40 @@ This repository contains two main applications:
 - `navbar-app`: A React microfrontend built with Vite.
 - `root-nextjs`: The root-config/container app built with Next.js and single-spa.
 
+---
+
+## Simple Architecture Diagram
+
+```
++-------------------+         +-------------------+
+|                   |         |                   |
+|   navbar-app      |         |   dashboard-app   |
+| (Microfrontend)   |         | (Microfrontend)   |
+|  React + Vite     |         |  (example)        |
++---------+---------+         +---------+---------+
+          |                             |
+          |                             |
+          +-------------+---------------+
+                        |
+                        v
+            +-----------------------------+
+            |      root-nextjs            |
+            |  (single-spa root-config)   |
+            |      Next.js App            |
+            +-----------------------------+
+                        |
+                        v
+            +-----------------------------+
+            |         Browser             |
+            +-----------------------------+
+```
+
+- Each microfrontend (e.g., `navbar-app`) is built and served independently.
+- The `root-nextjs` app acts as the single-spa root-config/container, loading microfrontends dynamically via SystemJS import maps.
+- The browser loads the root app, which then loads and mounts the microfrontends as needed.
+
+---
+
 ## Prerequisites
 - Node.js (v16 or higher recommended)
 - npm (v8 or higher)
